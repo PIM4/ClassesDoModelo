@@ -5,11 +5,11 @@ namespace Model.Entity
 {
 	public class ReclamSugest
 	{
-		private Condomino autor{get;set;}
-		private string titulo{get;set;}
-		private string descricao{get;set;}
-		private DateTime data{get;set;}
-		private bool verificador{get;set;}
+		public Condomino autor{get;set;}
+		public string titulo{get;set;}
+		public string descricao{get;set;}
+		public DateTime data{get;set;}
+		public bool verificador{get;set;}
 
 		public ReclamSugest(Condomino autor, string titulo, string descricao, bool verificador)
 		{

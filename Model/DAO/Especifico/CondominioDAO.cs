@@ -6,15 +6,15 @@ namespace Model.DAO.Especifico
 	{
 		public bool salva(Condominio cond)
 		{
-		}
+	return	}
 
 		public Condominio buscarCondominioPorNome()
 		{
-		}
+	return	}
 
 		public bool remove()
 		{
-		}
+	return	}
 
 	}
 

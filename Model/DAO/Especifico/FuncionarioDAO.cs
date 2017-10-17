@@ -6,11 +6,11 @@ namespace Model.DAO.Especifico
 	{
 		public bool salva(Funcionario funcionario)
 		{
-		}
+	return	}
 
 		public bool remove()
 		{
-		}
+	return	}
 
 	}
 

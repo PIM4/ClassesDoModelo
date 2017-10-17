@@ -5,12 +5,12 @@ namespace Model.Entity
 {
 	public class Correspondencia
 	{
-		private string descCorespondencia{get;set;}
-		private Unidade destinatario{get;set;}
-		private DateTime dtEntrada{get;set;}
-		private DateTime dtSaida{get;set;}
-		private string responsavelRetirada{get;set;}
-		private string obsDeCancelamento{get;set;}
+		public string descCorespondencia{get;set;}
+		public Unidade destinatario{get;set;}
+		public DateTime dtEntrada{get;set;}
+		public DateTime dtSaida{get;set;}
+		public string responsavelRetirada{get;set;}
+		public string obsDeCancelamento{get;set;}
 
 		public Correspondencia(string descCorespondencia, string destinatario, DateTime dtEntrada)
 		{

@@ -7,23 +7,23 @@ namespace Model.DAO.Especifico
 	{
 		public bool salva(Enquete enquete)
 		{
-		}
+	return	}
 
 		public List<Enquete> buscarEnquetePorPergunta(string pergunta)
 		{
-		}		
+	return	}		
 
 		public List<Enquete> buscarEnquetePorData(DateTime dtInicio, DateTime dtFinal)
 		{
-		}
+	return	}
 
 		public List<Enquete> listaEnquetes()
 		{
-		}
+	return	}
 		
 		public bool Remove()
 		{
-		}
+	return	}
 
 	}
 

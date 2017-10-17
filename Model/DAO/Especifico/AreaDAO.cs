@@ -7,23 +7,28 @@ namespace Model.DAO.Especifico
 	{
 		public bool salva(Area area)
 		{
+			return
 		}
 
 		public List<Area> buscaAreaPorNome(string nome)
 		{
+			return
 		}
 
 		public List<Area> buscaAreaPorAlugaveis()
 		{
+			return
 		}
 
 		public List<Area> ListaAreas()
 		{
+			return
 		}
 
 
 		public bool remove()
 		{
+			return
 		}
 
 	}

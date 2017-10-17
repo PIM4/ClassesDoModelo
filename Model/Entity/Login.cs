@@ -5,9 +5,9 @@ namespace Model.Entity
 {
 	public class Login
 	{
-		private string login{get;set;}
-		private string senha{get;set;}
-		private int permissao{get;set;}
+		public string login{get;set;}
+		public string senha{get;set;}
+		public int permissao{get;set;}
 		
 		public Login(string login, string senha, int perma)
 		{

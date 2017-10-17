@@ -5,11 +5,11 @@ namespace Model.Entity
 {
 	public class Obra
 	{
-		private string tipoObra{get;set;}
-		private Area area{get;set;}
-		private DateTime dtinicio{get;set;}
-		private DateTime dtfinal{get;set;}
-		private Fornecedor fornecerdor{set; get;}
+		public string tipoObra{get;set;}
+		public Area area{get;set;}
+		public DateTime dtinicio{get;set;}
+		public DateTime dtfinal{get;set;}
+		public Fornecedor fornecerdor{set; get;}
 
 		public Obra(string tipo, Area area, DateTime dtIn, Fornecedor fornecerdor)
 		{

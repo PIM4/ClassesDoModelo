@@ -5,10 +5,10 @@ namespace Model.Entity
 {
 	public class Enquete
 	{
-		private string pergunta{get;set;}
-		private string dtInicio{get;set;}
-		private string dtFim{get;set;}
-		private List<string> opVotos{get; set;}
+		public string pergunta{get;set;}
+		public string dtInicio{get;set;}
+		public string dtFim{get;set;}
+		public List<string> opVotos{get; set;}
 
 		public Enquete(string pergunta, string dtInicio, string dtFim, List opVotos)
 		{

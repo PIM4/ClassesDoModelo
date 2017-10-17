@@ -5,12 +5,12 @@ namespace Model.Entity
 {
 	public class Condominio
 	{
-		private string nome{get;set;}
-		private Endereco endereco{get;set;}		
-		private int qtdBlocos{get;set;}		
-		private string proprietario{get;set;}
-		private string cnpj{get;set;}
-		private DateTime dataInauguracao{get;set;}
+		public string nome{get;set;}
+		public Endereco endereco{get;set;}		
+		public int qtdBlocos{get;set;}		
+		public string proprietario{get;set;}
+		public string cnpj{get;set;}
+		public DateTime dataInauguracao{get;set;}
 		
 		public Condominio(string nome, Endereco endereco, string proprietario, string cnpj, DateTime dtInau)
 		{

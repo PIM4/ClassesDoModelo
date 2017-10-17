@@ -7,11 +7,11 @@ namespace Model.DAO.Especifico
 	{
 		public bool salva(Morador morador)
 		{
-		}
+	return	}
 
 		public bool remove(Morador morador)
 		{
-		}
+	return	}
 
 	}
 

@@ -5,8 +5,8 @@ namespace Model.Entity
 {
 	public class Visitante
 	{
-		private string nome{get;set;}
-		private string rg{get;set;}
+		public string nome{get;set;}
+		public string rg{get;set;}
 		// arquivo de foto = foto ????
 
 		public Visitante(string nome, string rg)

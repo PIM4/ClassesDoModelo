@@ -5,10 +5,10 @@ namespace Model.Entity
 {
 	public class Aviso
 	{
-		private string titulo{get;set;}
-		private string descricao{get;set;}
-		private Condominio condominio{get;set;}
-		private DateTime data{get;set;}
+		public string titulo{get;set;}
+		public string descricao{get;set;}
+		public Condominio condominio{get;set;}
+		public DateTime data{get;set;}
 
 		public Aviso(string titulo, string descricao, condomino Condominio){
 

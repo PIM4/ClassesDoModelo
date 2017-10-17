@@ -5,10 +5,10 @@ namespace Model.Entity
 {
 	public class Area
 	{
-		private string nome{get;set;}
-		private string descricao{get;set;}
-		private int capacMax{get;set;}
-		private bool seAluga{get;set;}
+		public string nome{get;set;}
+		public string descricao{get;set;}
+		public int capacMax{get;set;}
+		public bool seAluga{get;set;}
 
 		public Area(string nome, int capacMax, bool seAluga)
 		{

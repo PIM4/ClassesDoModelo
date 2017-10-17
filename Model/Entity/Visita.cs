@@ -5,10 +5,10 @@ namespace Model.Entity
 {
 	public class Visita
 	{
-		private Visitante visitante{get;set;}
-		private Unidade unidade{get;set;}
-		private DateTime dtChegada{get;set;}
-		private DateTime dtSaida{get;set;}
+		public Visitante visitante{get;set;}
+		public Unidade unidade{get;set;}
+		public DateTime dtChegada{get;set;}
+		public DateTime dtSaida{get;set;}
 
 		public Visita(Visitante visitante, Unidade uni, DateTime dtChegada)
 		{

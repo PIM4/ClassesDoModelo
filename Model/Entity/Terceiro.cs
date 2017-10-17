@@ -5,7 +5,7 @@ namespace Model.Entity
 {
 	public class Terceiro : Pessoa
 	{
-		private string servico{get;set;}
+		public string servico{get;set;}
 
 		public Terceiro(string servico, string nome, string rg, string documento, List<Endereco> endereco, List<Telefone> telefone)
 		{

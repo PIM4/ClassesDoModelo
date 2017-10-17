@@ -5,10 +5,10 @@ namespace Model.Entity
 {
 	public class Bloco
 	{
-		private string nome{get;set;}
-		private int qtAndares{get;set;}
-		private int qtApto{get;set;}	
-		private Condominio condominio{get;set;}
+		public string nome{get;set;}
+		public int qtAndares{get;set;}
+		public int qtApto{get;set;}	
+		public Condominio condominio{get;set;}
 
 		public Bloco(string nome, condominio Condominio)
 		{

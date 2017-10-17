@@ -5,13 +5,13 @@ namespace Model.Entity
 {
 	public class Endereco
 	{
-		private string logradouro{get;set;}
-		private int numero{get;set;}
-		private string complemento{get;set;}
-		private string bairro{get;set;}
-		private int cep{get;set;}
-		private string cidade{get;set;}
-		private string estado{get;set;}
+		public string logradouro{get;set;}
+		public int numero{get;set;}
+		public string complemento{get;set;}
+		public string bairro{get;set;}
+		public int cep{get;set;}
+		public string cidade{get;set;}
+		public string estado{get;set;}
 
 		public Endereco(string cep, string log, int num, string bairro, string cidade)
 		{
