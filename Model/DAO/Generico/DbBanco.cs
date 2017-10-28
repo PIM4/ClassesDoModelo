@@ -1,41 +1,54 @@
 using Model.Entity;
 using System;
+using System.Data.SqlClient;
+using System.Data.Sql;
+using System.Data;
+using Model.DAO.Configuracao;
 
 namespace Model.DAO.Generico
 {
 	public class dbBancos
 	{
-		public string strConexao { get; set; }
+        public string strConexao { get; set; }
 
-		public dbBancos(string ChaveBase)
-		{
-			Configuracoes confiracao = new Configuracoes();
-			this.strConexao = confiracao.LeStringConexao(ChaveBase);
-		}
+        public dbBancos()
+        {
 
-		public DataTable MetodoSelect(string QuerySQL)
+        }
+
+        public dbBancos(string ChaveBase)
+        {
+            Configuracoes configuracao = new Configuracoes();
+            this.strConexao = configuracao.LeStringConexao(ChaveBase);
+        }
+
+        public SqlDataReader MetodoSelect(string QuerySQL)
 		{
-			DataTable tabela = new DataTable();
+			//DataTable tabela = new DataTable();
+            SqlConnection conexao = new SqlConnection(strConexao);
+            SqlCommand cmd = new SqlCommand(QuerySQL);
+			//SqlDataAdapter da = new SqlDataAdapter(QuerySQL, conexao);
 			try
 			{
-				using (SqlConnection conexao = new SqlConnection(strConexao))
-				{
-					using (SqlDataAdapter da = new SqlDataAdapter(QuerySQL, conexao))
-					{
-						da.Fill(tabela);
-					}
-				}
+                conexao.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+			    //da.Fill(tabela);
+                return dr;
 			}
 			catch (Exception ex)
 			{
-				tabela = null;
-				string err = ex.Message;
-				err = "Falha : " + err;
+				//tabela = null;
+                throw ex;
 			}
-			return tabela;
+            finally
+            {
+                conexao.Close();
+                //da.Dispose();
+                cmd.Dispose();
+            }
 		}
 
-		public bool MedotoNaoQuery(string QuerySQL)
+		public bool MetodoNaoQuery(string QuerySQL)
 		{
 			bool retorno = false;
 			SqlConnection conexao = null;
@@ -50,9 +63,8 @@ namespace Model.DAO.Generico
 			}
 			catch (Exception ex)
 			{
-				string err = ex.Message;
-				err = "Falha : " + err;
-				retorno = false;
+                retorno = false;
+                throw ex;
 			}
 			finally
 			{
@@ -63,5 +75,18 @@ namespace Model.DAO.Generico
 			}
 			return retorno;
 		}
+
+        public bool SetarObjeto()
+        {
+            try
+            {
+                return true;
+            }
+
+            catch
+            {
+                return false;
+            }          
+        }
 	}
 }
