@@ -1,5 +1,6 @@
 using Model.Entity;
 using System.Collections.Generic;
+using System;
 
 namespace Model.DAO.Especifico
 {

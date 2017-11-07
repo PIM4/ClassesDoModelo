@@ -1,4 +1,6 @@
 using Model.Entity;
+using System;
+using System.Collections.Generic;
 
 namespace Model.DAO.Especifico
 {
@@ -14,7 +16,7 @@ namespace Model.DAO.Especifico
 
 		}
 
-		public list<Telefone> listaTelefone()
+		public List<Telefone> listaTelefone()
 		{
 
 		}		

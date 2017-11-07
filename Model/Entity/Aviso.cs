@@ -5,12 +5,23 @@ namespace Model.Entity
 {
 	public class Aviso
 	{
-		public string titulo{get;set;}
-		public string descricao{get;set;}
-		public Condominio condominio{get;set;}
-		public DateTime data{get;set;}
+        public Aviso()
+        {
 
-		public Aviso(string titulo, string descricao, condomino Condominio){
+        }
+
+		public string titulo { get; set; }
+
+		public string descricao { get; set; }
+
+		public int id_cond { get; set; }
+
+        public string nome_cond { get; set; }
+
+		public DateTime data { get; set; }
+
+        public Aviso(string titulo, string descricao, Condominio condominio)
+        {
 
 		}
 	}

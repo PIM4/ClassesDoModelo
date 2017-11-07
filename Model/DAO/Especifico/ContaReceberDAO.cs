@@ -26,7 +26,7 @@ namespace Model.DAO.Especifico
 		{
 	return	}
 
-		public List listaContaReceber()
+		public List<ContaReceber> listaContaReceber()
 		{
 	return	}
 

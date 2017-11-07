@@ -5,6 +5,11 @@ namespace Model.Entity
 {
 	public class Condominio
 	{
+        public Condominio()
+        {
+
+        }
+        public int id_cond { get; set; }
 		public string nome{get;set;}
 		public Endereco endereco{get;set;}		
 		public int qtdBlocos{get;set;}		

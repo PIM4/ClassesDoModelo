@@ -76,17 +76,5 @@ namespace Model.DAO.Generico
 			return retorno;
 		}
 
-        public bool SetarObjeto()
-        {
-            try
-            {
-                return true;
-            }
-
-            catch
-            {
-                return false;
-            }          
-        }
 	}
 }

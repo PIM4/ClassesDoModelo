@@ -1,4 +1,6 @@
 using Model.Entity;
+using System;
+using System.Collections.Generic;
 
 namespace Model.DAO.Especifico
 {
@@ -8,19 +10,19 @@ namespace Model.DAO.Especifico
 		{
 	return	}
 
-		public list<Fornecedor> buscarFornecedorPorNome(string nome)
+		public List<Fornecedor> buscarFornecedorPorNome(string nome)
 		{
 	return	}		
 
-		public list<Fornecedor> buscarFornecedorPorRamo(string ramo)
+		public List<Fornecedor> buscarFornecedorPorRamo(string ramo)
 		{
 	return	}		
 
-		public list<Fornecedor> buscarFornecedorPorCNPJ(string cnpj)
+		public List<Fornecedor> buscarFornecedorPorCNPJ(string cnpj)
 		{
 	return	}
 
-		public list<Fornecedor> listaFornecedor()
+		public List<Fornecedor> listaFornecedor()
 		{
 	return	}
 

@@ -9,16 +9,18 @@ namespace Model.Entity
 		public Area area{get;set;}
 		public DateTime dtinicio{get;set;}
 		public DateTime dtfinal{get;set;}
-		public Fornecedor fornecerdor{set; get;}
+		public Fornecedor fornecedor{set; get;}
 
-		public Obra(string tipo, Area area, DateTime dtIn, Fornecedor fornecerdor)
+		public Obra(string tipo, Area area, DateTime dtIn, Fornecedor fornecedor)
 		{
+            this.fornecedor = fornecedor;
+
 
 		}
 
-		public fechamentoObra(DateTime dtfinal)
+		public void fechamentoObra(DateTime dtfinal)
 		{
-
+            return; 
 		}
 
 	}

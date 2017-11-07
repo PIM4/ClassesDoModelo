@@ -168,7 +168,10 @@ namespace Model.DAO.Especifico
                             obj.data = Convert.ToDateTime(dr[idx]);
                             break;
                         case "ID_COND":
-                            obj.condominio = Convert.ToInt32(dr[idx]);  //Verificar esse objeto...
+                            obj.id_cond = Convert.ToInt32(dr[idx]);  //Verificar esse objeto...
+                            break;
+                        case "NOME":
+                            obj.nome_cond = Convert.ToString(dr[idx]);
                             break;
                     }
                 }

@@ -98,7 +98,7 @@ namespace Model.DAO.Especifico
             return lstAviso;
         }
 
-		public bool remove(int id)      //Verificar
+		public bool remove(int id)      //Implementar opção de bkp, exclusão!
 		{
             query = null;
             try

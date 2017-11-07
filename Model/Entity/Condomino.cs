@@ -1,5 +1,6 @@
 using Model.Entity;
 using System;
+using System.Collections.Generic;
 
 namespace Model.Entity
 {
@@ -8,6 +9,10 @@ namespace Model.Entity
 		public bool morador{get;set;}
 		public bool proprietario{get;set;}
 
+        public Condomino()
+        {
+
+        }
 		public Condomino(bool morador, bool proprietario, string nome, string rg, string documento, List<Endereco> endereco, List<Telefone> telefone)
 		{
 			

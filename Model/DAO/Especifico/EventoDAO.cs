@@ -8,7 +8,7 @@ namespace Model.DAO.Especifico
 	{
 		public bool salva(Evento ev)
 		{
-
+            return 
 		}
 
 		public List<Evento> buscarEventoPorData(DateTime dt1, DateTime dt2)

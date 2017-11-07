@@ -70,8 +70,9 @@ namespace Model.DAO.Especifico
             List<Bloco> lstBloco = new List<Bloco>();
             try
             {
-                query = "SELECT IDENTIFICACAO, QTD_ANDARES, ID_COND, QTD_UNIDADES FROM BLOCO "
-                         + " WHERE STS_ATIVO = 1";
+                query = "SELECT B.IDENTIFICACAO, B.QTD_ANDARES, C.NOME, B.QTD_UNIDADES FROM BLOCO AS B "
+                        + " INNER JOIN CONDOMINIO AS C ON C.ID_COND = B.ID_COND"
+                         + " WHERE B.STS_ATIVO = 1";
                 lstBloco.Add(setarObjeto(banco.MetodoSelect(query)));
             }
 
@@ -128,12 +129,9 @@ namespace Model.DAO.Especifico
                         case "QTD_UNIDADES":
                             obj.qtApto = Convert.ToInt32(dr[idx]);
                             break;
-                        case "ID_COND":
-                            obj.condominio = Convert.ToInt32(dr[idx]);  //Verificar esse objeto...
+                        case "NOME":
+                            obj.nomecond = Convert.ToString(dr[idx]);  //Verificar esse objeto...
                             break;
-                        //case "STS_ATIVO":
-                        //    obj.at = Convert.ToInt32(dr[idx]);  //Verificar esse objeto...
-                        //    break;
                     }
                 }
             }
