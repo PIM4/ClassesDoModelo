@@ -5,6 +5,7 @@ namespace Model.Entity
 {
 	public class Fornecedor
 	{
+        public int id_fornecedor { get; set; }
 		public string nomeEmpresa{get;set;}
 		public string ramo{get;set;}
 		public string cnpj{get;set;}

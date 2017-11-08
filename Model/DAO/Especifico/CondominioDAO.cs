@@ -43,15 +43,14 @@ namespace Model.DAO.Especifico
             }
         }
 
-		public List<Condominio> buscaPorNome(string nome)
-		{
+        public List<Condominio> busca()
+        {
             query = null;
-            List<Condominio> lstCondominio = new List<Condominio>();
+            List<Condominio> lstAviso = new List<Condominio>();
             try
             {
-                query = "SELECT NOME, DT_INAUGURACAO, PROPRIETARIO, CNPJ FROM CONDOMINIO WHERE STS_ATIVO = 1 AND NOME LIKE '%"
-                    + nome + "%'";
-                lstCondominio.Add(setarObjeto(banco.MetodoSelect(query)));
+                query = "SELECT NOME, DT_INAUGURACAO, PROPRIETARIO, CNPJ FROM CONDOMINIO WHERE STS_ATIVO = 1";
+                lstAviso.Add(setarObjeto(banco.MetodoSelect(query)));
             }
 
             catch (Exception ex)
@@ -59,7 +58,7 @@ namespace Model.DAO.Especifico
                 throw ex;
             }
 
-            return lstCondominio;	
+            return lstAviso;
         }
 
         public int buscaNome()   //Método personalizado. NAO TEM QUE RETORNAR LISTA!
@@ -80,22 +79,22 @@ namespace Model.DAO.Especifico
             return cond.id_cond;
         }
 
-        public List<Condominio> busca()
+        public bool altera(Condominio condominio)
         {
             query = null;
-            List<Condominio> lstAviso = new List<Condominio>();
             try
             {
-                query = "SELECT NOME, DT_INAUGURACAO, PROPRIETARIO, CNPJ FROM CONDOMINIO WHERE STS_ATIVO = 1";
-                lstAviso.Add(setarObjeto(banco.MetodoSelect(query)));
+                query = "UPDATE CONDOMINIO SET NOME = '" + condominio.nome + "', PROPRIETARIO = '" + condominio.proprietario 
+                        + "', CNPJ = '" + condominio.cnpj + " WHERE ID_COND = " + (condominio.id_cond).ToString();
+                banco.MetodoNaoQuery(query);
+                return true;
             }
 
             catch (Exception ex)
             {
+                return false;
                 throw ex;
             }
-
-            return lstAviso;
         }
 
 		public bool remove(int id)      //Implementar opção de bkp, exclusão!
@@ -115,11 +114,33 @@ namespace Model.DAO.Especifico
             }
         }
 
-        public bool verificaCadastro()  //Verifica se ja existe algum condominio cadastrado. utilizar o COUNT()
-        {
+        #region DSTV
 
-            return false;
-        }
+        //public bool verificaCadastro()  //Verifica se ja existe algum condominio cadastrado. utilizar o COUNT()
+        //{
+
+        //    return false;
+        //}
+
+        //public List<Condominio> buscaPorNome(string nome)
+        //{
+        //    query = null;
+        //    List<Condominio> lstCondominio = new List<Condominio>();
+        //    try
+        //    {
+        //        query = "SELECT NOME, DT_INAUGURACAO, PROPRIETARIO, CNPJ FROM CONDOMINIO WHERE STS_ATIVO = 1 AND NOME LIKE '%"
+        //            + nome + "%'";
+        //        lstCondominio.Add(setarObjeto(banco.MetodoSelect(query)));
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+
+        //    return lstCondominio;	
+        //} //Verificar...
+        #endregion
 
         #endregion
 

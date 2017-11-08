@@ -84,6 +84,24 @@ namespace Model.DAO.Especifico
             return lstBloco;		
         }
 
+        public bool altera(Bloco bloco)
+        {
+            query = null;
+            try
+            {
+                query = "UPDATE BLOCO SET IDENTIFICACAO = '" + bloco.nome + "', QT_ANDARES = " + (bloco.qtAndares).ToString()
+                        + " WHERE ID_BLOCO = " + (bloco.id_bloco).ToString();
+                banco.MetodoNaoQuery(query);
+                return true;
+            }
+
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
+        }
+
 		public bool remove(int id)
 		{
             query = null;

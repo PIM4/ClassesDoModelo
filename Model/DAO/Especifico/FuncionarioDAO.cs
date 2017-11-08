@@ -12,6 +12,7 @@ namespace Model.DAO.Especifico
 
         //Por padrão, todas as buscas serão WHERE STS_ATIVO = 1, exceto a verificação se já existe o cadastro.
         //O prof Cassiano orientou a implementar o setarObjeto() dessa forma que foi feita, pq todas as classes precisam, com parametros e objetos diferentes. Não vale o trampo de abstrair.
+        //O ID da PESSOA será trazido na classe controller pra cadastrar aqui.
 
         #endregion
 
@@ -26,7 +27,19 @@ namespace Model.DAO.Especifico
 
 		public bool cadastra(Funcionario funcionario)
 		{
-	        return
+            query = null;
+            try
+            {
+                query = "INSERT INTO FUNCIONARIO (ID_CARGO, ID_PESSOA, STS_ATIVO) VALUES ("
+                        + (funcionario.cargo).ToString() + ", " + (funcionario.id_pessoa).ToString() + ", 1)";
+                return true;
+            }
+
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
         }
 
 		public bool remove()

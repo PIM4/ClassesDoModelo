@@ -34,6 +34,7 @@ namespace Model.DAO.Especifico
             {
                 query = "INSERT INTO AVISO (TITULO, DESCRICAO, DATA, ID_COND, STS_ATIVO) VALUES (" + aviso.titulo + ", "
                     + aviso.descricao + ", " + (aviso.data).ToString() + (cond.buscaNome()).ToString() + ", 1)";
+                banco.MetodoNaoQuery(query);
                 return true;
             }
 
@@ -123,7 +124,25 @@ namespace Model.DAO.Especifico
             }
 
             return lstAviso;
-        }		
+        }
+
+        public bool altera(Aviso aviso)
+        {
+            query = null;
+            try
+            {   //Não vai alterar data do aviso. Lembrar de bloquear o campo.
+                query = "UPDATE AVISO SET TITULO = '" + aviso.titulo + "', DESCRICAO = '" + aviso.descricao + "' WHERE ID_AVISO = " 
+                        + (aviso.id_aviso).ToString();
+                banco.MetodoNaoQuery(query);
+                return true;
+            }
+
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
+        }
 
 		public bool remove(int id)
 		{

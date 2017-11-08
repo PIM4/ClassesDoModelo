@@ -10,6 +10,8 @@ namespace Model.Entity
 
         }
 
+        public int id_aviso { get; set; }
+
 		public string titulo { get; set; }
 
 		public string descricao { get; set; }

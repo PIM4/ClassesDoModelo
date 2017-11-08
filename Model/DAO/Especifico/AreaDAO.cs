@@ -35,6 +35,7 @@ namespace Model.DAO.Especifico
                 query = "INSERT INTO AREA (DESCRICAO, RESERVA, NOME, CAPACIDADE_MAX, STS_ATIVO) VALUES ("
                                 + area.descricao + ", " + (area.seAluga).ToString() + ", " + area.nome + ", "
                                 + (area.capacMax).ToString() + ", 1)";
+                banco.MetodoNaoQuery(query);
                 return true;
             }
 
@@ -98,6 +99,25 @@ namespace Model.DAO.Especifico
             return lstArea;
 		}
 
+        public bool altera(Area area)
+        {
+            query = null;
+            try
+            {
+                query = "UPDATE AREA SET DESCRICAO = '" + area.descricao + "', RESERVA = " + (area.seAluga).ToString() + ", NOME = '"
+                        + area.nome + "', CAPACIDADE_MAX = " + (area.capacMax).ToString() + ", STS_ATIVO = 1 "
+                        + " WHERE ID_AREA = " + (area.id_area).ToString();
+                banco.MetodoNaoQuery(query);
+                return true;
+            }
+
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
+        }
+
 		public bool remove(int id)
 		{
             query = null;
@@ -115,6 +135,15 @@ namespace Model.DAO.Especifico
             }
 		}
 
+        //public int contaArea()
+        //{
+        //    query = "SELECT COUNT(*) FROM AREA WHERE STS_ATIVO = 1";
+
+
+
+        //    return 1;
+        //} //Verificar...
+        
         #endregion
 
         #region Métodos

@@ -24,7 +24,7 @@ namespace Model.Entity
 
 		public bool seAluga { get; set; }
 
-        public bool ativo { get; set; }
+        //public bool ativo { get; set; }
 		
 	}
 
