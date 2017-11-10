@@ -14,8 +14,8 @@ namespace Model.Entity
 		public string cidade{get;set;}
 		public string estado{get;set;}
         public string descricao { get; set; }
-
-        public Pessoa id_pessoa { get; set; }
+        public Fornecedor fornecedor { get; set; }
+        public Pessoa pessoa { get; set; }
 		public Endereco(string cep, string log, int num, string bairro, string cidade)
 		{
 

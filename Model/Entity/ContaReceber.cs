@@ -5,6 +5,7 @@ namespace Model.Entity
 {
 	public class ContaReceber
 	{
+        public int id_conta_receber { get; set; }
 		public Condominio condominio{get;set;}
 		public Unidade unidade{get;set;}
 		public DateTime data{get;set;}

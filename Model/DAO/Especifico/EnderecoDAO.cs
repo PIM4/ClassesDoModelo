@@ -19,7 +19,6 @@ namespace Model.DAO.Especifico
         #region Objetos
 
         dbBancos banco = new dbBancos();
-        Pessoa pessoa = new Pessoa();   //CONVERSAR COM CASSIANO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         string query = null;
 
         #endregion
@@ -31,9 +30,9 @@ namespace Model.DAO.Especifico
             query = null;
             try
             {
-                query = "INSERT INTO ENDERECO (LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP, ID_PESSOA, STS_ATIVO, DESCRICAO) VALUES ("
+                query = "INSERT INTO ENDERECO (LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP, ID_PESSOA, STS_ATIVO, DESCRICAO, ID_FORNECEDOR) VALUES ("
                     + end.logradouro + ", " + (end.numero).ToString() + ", " + end.complemento + ", " + end.bairro + ", " + end.cidade + ", " 
-                    + end.estado + ", " + end.cep + ", " + (end.id_pessoa).ToString() + ", " + ", 1, " + end.descricao + ")";
+                    + end.estado + ", " + end.cep + ", " + (end.pessoa.id_pessoa).ToString() + ", 1, " + end.descricao + ", " + (end.fornecedor.id_fornecedor).ToString() + ")";
                 return true;
             }
 
@@ -42,7 +41,7 @@ namespace Model.DAO.Especifico
                 return false;
                 throw ex;
             }
-        }
+        }   //Os cadastros deverão ser jogados dentro de uma mesma lista de endereços.
 
 		public List<Endereco> buscaPorLogradouro(string logradouro, int id_pessoa)
 		{
@@ -50,8 +49,8 @@ namespace Model.DAO.Especifico
             List<Endereco> lstEndereco = new List<Endereco>();
             try
             {
-                query = "SELECT DESCRICAO, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP FROM ENDERECO WHERE STS_ATIVO = 1 AND LOGRADOURO LIKE '%" 
-                    + logradouro + "%'";
+                query = "SELECT DESCRICAO, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP FROM ENDERECO WHERE STS_ATIVO = 1 "
+                        + "AND LOGRADOURO LIKE '%" + logradouro + "%'";
                 lstEndereco.Add(setarObjeto(banco.MetodoSelect(query)));
             }
                          
@@ -63,7 +62,7 @@ namespace Model.DAO.Especifico
             return lstEndereco;	
         }
 
-        public List<Endereco> buscarEnderecoPorCep(string cep, int id_pessoa)
+        public List<Endereco> buscaPorCep(string cep, int id_pessoa)
 		{
             query = null;
             List<Endereco> lstEndereco = new List<Endereco>();
@@ -82,14 +81,14 @@ namespace Model.DAO.Especifico
             return lstEndereco;	
         }
 
-        public List<Endereco> buscarEnderecoPorEstado(string estado, int id_pessoa)
+        public List<Endereco> buscaPorEstado(string estado, int id_pessoa)
 		{
             query = null;
             List<Endereco> lstEndereco = new List<Endereco>();
             try
             {
-                query = "SELECT DESCRICAO, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP FROM ENDERECO WHERE STS_ATIVO = 1 AND ESTADO = "
-                    + estado;
+                query = "SELECT DESCRICAO, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP FROM ENDERECO WHERE STS_ATIVO = 1 "
+                        + "AND ESTADO = " + estado;
                 lstEndereco.Add(setarObjeto(banco.MetodoSelect(query)));
             }
 
@@ -101,7 +100,7 @@ namespace Model.DAO.Especifico
             return lstEndereco;	
         }
 
-        public List<Endereco> buscarEnderecoPorCidade(string cidade, int id_pessoa)
+        public List<Endereco> buscaPorCidade(string cidade, int id_pessoa)
 		{
             query = null;
             List<Endereco> lstEndereco = new List<Endereco>();
@@ -120,7 +119,7 @@ namespace Model.DAO.Especifico
             return lstEndereco;	
         }
 
-		public List<Endereco> listaEndereco(int id_pessoa)
+		public List<Endereco> busca(int id_pessoa)
 		{
             query = null;
             List<Endereco> lstEndereco = new List<Endereco>();
@@ -136,6 +135,25 @@ namespace Model.DAO.Especifico
             }
 
             return lstEndereco;	
+        }
+
+        public bool altera(Endereco end)
+        {
+            query = null;
+            try
+            {
+                query = "UPDATE ENDERECO SET LOGRADOURO = " + end.logradouro + ", NUMERO = " + (end.numero).ToString() + ", COMPLEMENTO = "
+                        + end.complemento + ", BAIRRO = " + end.bairro + ", CIDADE = " + end.cidade + ", ESTADO = " + end.estado + ", CEP = "
+                        + end.cep + ", DESCRICAO = " + end.descricao + " WHERE ID_ENDERECO = " + (end.id_endereco).ToString();
+                banco.MetodoNaoQuery(query);
+                return true;
+            }
+
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
         }
 
 		public bool remove(int id)

@@ -30,7 +30,7 @@ namespace Model.DAO.Especifico
             try
             {       //Os dados nulos serão inseridos posteriormente com a retirada da correspondencia.
                 query = "INSERT INTO CORRESPONDENCIA (DESCRICAO, ID_UNIDADE, DT_ENTRADA, DT_SAIDA, ID_PESSOA, STS_ATIVO, OBS_CANC) VALUES ("
-                    + correspondencia.descCorespondencia + ", " + (correspondencia.destinatario).ToString() + ", "
+                    + correspondencia.descricao + ", " + (correspondencia.unidade.id_unidade).ToString() + ", "
                     + (correspondencia.dtEntrada).ToString() + ", NULL, NULL, 1, NULL)";
                 return true;
             }
@@ -129,7 +129,8 @@ namespace Model.DAO.Especifico
             query = null;
             try
             {
-                query = "UPDATE CORRESPONDENCIA SET DT_SAIDA = " + dt_saida + ", ID_PESSOA = " + id_pessoa + " WHERE ID_CORRESPONDENCIA = " + (id).ToString();
+                query = "UPDATE CORRESPONDENCIA SET DT_SAIDA = " + dt_saida + ", ID_PESSOA = " + id_pessoa + " WHERE ID_CORRESPONDENCIA = " 
+                        + (id).ToString();
                 banco.MetodoNaoQuery(query);
                 return true;
             }
@@ -140,6 +141,13 @@ namespace Model.DAO.Especifico
                 throw ex;
             }
         }
+
+        #region DSTV
+        //public void entregaCorrespondencia(DateTime dtSaida, string responsavelRetirada)
+        //{
+
+        //}
+        #endregion
 
         #endregion
 
@@ -161,10 +169,10 @@ namespace Model.DAO.Especifico
                             obj.id_correspondencia = Convert.ToInt32(dr[idx]);
                             break;
                         case "DESCRICAO":
-                            obj.descCorespondencia = Convert.ToString(dr[idx]);
+                            obj.descricao = Convert.ToString(dr[idx]);
                             break;
                         case "ID_UNIDADE":
-                            obj.destinatario = Convert.ToInt32(dr[idx]);
+                            obj.unidade.id_unidade = Convert.ToInt32(dr[idx]);
                             break;
                         case "DT_ENTRADA":
                             obj.dtEntrada = Convert.ToDateTime(dr[idx]);
@@ -173,10 +181,13 @@ namespace Model.DAO.Especifico
                             obj.dtSaida = Convert.ToDateTime(dr[idx]);
                             break;
                         case "ID_PESSOA":
-                            obj.responsavelRetirada = Convert.ToInt32(dr[idx]);
+                            obj.responsavelRetirada.id_pessoa = Convert.ToInt32(dr[idx]);
                             break;
                         case "OBS_CANC":
-                            obj.obsDeCancelamento = Convert.ToString(dr[idx]);
+                            obj.obsCanc = Convert.ToString(dr[idx]);
+                            break;
+                        case "IDENTIFICACAO":
+                            obj.unidade.identificacao = Convert.ToString(dr[idx]);
                             break;
                     }
                 }
