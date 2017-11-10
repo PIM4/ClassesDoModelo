@@ -15,6 +15,10 @@ namespace Model.Entity
 		{
 
 		}
+        public Telefone()
+        {
+
+        }
 
 	}
 

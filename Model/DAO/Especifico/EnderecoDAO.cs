@@ -125,7 +125,8 @@ namespace Model.DAO.Especifico
             List<Endereco> lstEndereco = new List<Endereco>();
             try
             {
-                query = "SELECT DESCRICAO, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP FROM ENDERECO WHERE STS_ATIVO = 1";
+                query = "SELECT DESCRICAO, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP FROM ENDERECO WHERE STS_ATIVO = 1"
+                        + " AND ID_PESSOA = " + (id_pessoa.ToString());
                 lstEndereco.Add(setarObjeto(banco.MetodoSelect(query)));
             }
 
@@ -135,6 +136,25 @@ namespace Model.DAO.Especifico
             }
 
             return lstEndereco;	
+        }
+
+        public List<Endereco> buscaFornecedor(int id_fornecedor)
+        {
+            query = null;
+            List<Endereco> lstEndereco = new List<Endereco>();
+            try
+            {
+                query = "SELECT DESCRICAO, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP FROM ENDERECO WHERE STS_ATIVO = 1"
+                        + " AND ID_FORNECEDOR = " + (id_fornecedor).ToString();
+                lstEndereco.Add(setarObjeto(banco.MetodoSelect(query)));
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return lstEndereco;
         }
 
         public bool altera(Endereco end)
