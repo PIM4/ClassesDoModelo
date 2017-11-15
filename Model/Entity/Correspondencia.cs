@@ -6,13 +6,12 @@ namespace Model.Entity
 	public class Correspondencia
 	{
         public int id_correspondencia { get; set; }
-		public string descCorespondencia{get;set;}
-		public int destinatario{get;set;}
+		public string descricao{get;set;}
 		public DateTime dtEntrada{get;set;}
 		public DateTime dtSaida{get;set;}
-		public int responsavelRetirada{get;set;}    //Mudei o tipo
-		public string obsDeCancelamento{get;set;}
-
+		public Pessoa responsavelRetirada{get;set;}
+		public string obsCanc{get;set;}
+        public Unidade unidade { get; set; }
 		public Correspondencia(string descCorespondencia, string destinatario, DateTime dtEntrada)
 		{
 			
@@ -21,11 +20,6 @@ namespace Model.Entity
         {
 
         }
-
-		public void entregaCorrespondencia(DateTime dtSaida, string responsavelRetirada)
-		{
-
-		}
 	}
 
 }

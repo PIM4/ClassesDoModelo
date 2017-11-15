@@ -61,13 +61,13 @@ namespace Model.DAO.Especifico
             return lstAviso;
         }
 
-        public int buscaNome()   //Método personalizado. NAO TEM QUE RETORNAR LISTA!
+        public int buscaID()   //Método personalizado. NAO TEM QUE RETORNAR LISTA!
         {
             query = null;
             Condominio cond = new Condominio();
             try
             {
-                query = "SELECT NOME FROM CONDOMINIO WHERE STS_ATIVO = 1";
+                query = "SELECT ID_COND FROM CONDOMINIO WHERE STS_ATIVO = 1";
                 cond = setarObjeto(banco.MetodoSelect(query));
             }
 

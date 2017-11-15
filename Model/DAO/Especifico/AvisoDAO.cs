@@ -33,7 +33,7 @@ namespace Model.DAO.Especifico
             try
             {
                 query = "INSERT INTO AVISO (TITULO, DESCRICAO, DATA, ID_COND, STS_ATIVO) VALUES (" + aviso.titulo + ", "
-                    + aviso.descricao + ", " + (aviso.data).ToString() + (cond.buscaNome()).ToString() + ", 1)";
+                    + aviso.descricao + ", " + (aviso.data).ToString() + (cond.buscaID()).ToString() + ", 1)";
                 banco.MetodoNaoQuery(query);
                 return true;
             }

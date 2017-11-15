@@ -32,7 +32,7 @@ namespace Model.DAO.Especifico
             try
             {
                 query = "INSERT INTO BLOCO (IDENTIFICACAO, QTD_ANDARES, ID_COND, QTD_UNIDADES, STS_ATIVO) VALUES ("
-                    + bloco.nome + ", " + (bloco.qtAndares).ToString() + ", " + (cond.buscaNome()).ToString()
+                    + bloco.nome + ", " + (bloco.qtAndares).ToString() + ", " + (cond.buscaID()).ToString()
                     + ", " + (bloco.qtApto).ToString() + ", 1)";
                 return true;
             }
