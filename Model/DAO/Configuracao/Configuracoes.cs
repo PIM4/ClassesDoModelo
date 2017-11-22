@@ -5,17 +5,17 @@ namespace Model.DAO.Configuracao
 {
     public class Configuracoes
     {
-        public string LeStringConexao(string Chave)
+        public string LeStringConexao()
         {
-            string strConexao = "";
-
+            //string strConexao = "Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\\Users\bruna\\Documents\\bancoTestePim.mdf;Integrated Security=True;Connect Timeout=30";
+            string strConexao = null;
             try
             {
-                strConexao = System.Configuration.ConfigurationManager.ConnectionStrings[Chave].ConnectionString;
+                strConexao = "Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\\Users\\bruna\\Documents\\bancoTestePim.mdf;Integrated Security=True;Connect Timeout=30";
             }
             catch
             {
-                strConexao = string.Empty;
+                strConexao = null;
             }
             return strConexao;
         }
