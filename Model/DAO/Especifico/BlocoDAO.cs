@@ -148,7 +148,7 @@ namespace Model.DAO.Especifico
                             obj.qtApto = Convert.ToInt32(dr[idx]);
                             break;
                         case "NOME":
-                            obj.nomecond = Convert.ToString(dr[idx]);  //Verificar esse objeto...
+                            obj.condominio.nome = Convert.ToString(dr[idx]);  //Verificar esse objeto...
                             break;
                     }
                 }

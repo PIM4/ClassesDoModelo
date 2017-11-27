@@ -135,7 +135,7 @@ namespace Model.DAO.Especifico
         //    return lstContaPagar;
         //}
 
-		public List<ContaPagar> listaContaPagar()
+		public List<ContaPagar> buscaContaPagar()
 		{
             query = null;
             List<ContaPagar> lstContaPagar = new List<ContaPagar>();
